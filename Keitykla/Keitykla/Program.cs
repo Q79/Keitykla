@@ -11,17 +11,27 @@ namespace Keitykla
         static void Main(string[] args)
         {
             Console.WriteLine("I ka noretumete konvertuoti:[1] USD, [2] PLN");
-            string valiuta = "";
+            string valiuta = Console.ReadLine();
             Console.WriteLine("Iveskite EUR kieki:");
-            decimal keiciamaSuma = Convert.ToDecimal(Console.ReadLine());
+            double keiciamaSuma = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Jums priklauso: {0} {1}", Keisti(valiuta, keiciamaSuma), valiuta);
+            Console.ReadLine();
 
 
 
         }
-        static void double Keisti (int valiuta, decimal keiciamaSuma)
+        public static double Keisti (string valiuta, double keiciamaSuma)
         {
-
+            double result= 0;
+            if (valiuta == "USD")
+            {
+                result = 1.1 * keiciamaSuma;          
+            }
+            if (valiuta == "PLN")
+            {
+                result = 4.3 * keiciamaSuma;
+            }
+            return result;
         }
     }
 }
